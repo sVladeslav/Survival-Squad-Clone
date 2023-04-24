@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-    public class MoveByPhysicsJoysticController : MonoBehaviour
+    public class PlayerMoveController : MonoBehaviour
     {
         public event Action<bool> OnPlayerMove;
 
