@@ -864,7 +864,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840873715}
-  m_LocalRotation: {x: 0.2832025, y: 0.000000016501954, z: -0.0000000048728905, w: 0.95906013}
+  m_LocalRotation: {x: 0.2832025, y: -0.000000016501955, z: 0.000000004872891, w: 0.95906013}
   m_LocalPosition: {x: 0, y: 7.115, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1164,7 +1164,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1301524100}
-  m_LocalRotation: {x: 0.2832025, y: 0.000000016501954, z: -0.0000000048728905, w: 0.95906013}
+  m_LocalRotation: {x: 0.2832025, y: -0.000000016501955, z: 0.000000004872891, w: 0.95906013}
   m_LocalPosition: {x: 0, y: 7.115, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1883,6 +1883,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 3139334586432748188}
   _animationController: {fileID: 3139334586432748182}
   _attackController: {fileID: 3139334586432748180}
+  _healthBarPrefab: {fileID: 2486806842146436248, guid: 4d80e2f65e003454984c6c9c90816194, type: 3}
 --- !u!54 &3139334586432748186
 Rigidbody:
   m_ObjectHideFlags: 0
