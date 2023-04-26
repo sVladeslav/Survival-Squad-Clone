@@ -13,6 +13,8 @@ namespace UnityTemplateProjects.Player
 
         [SerializeField] private WeaponData _defaultWeapon;
 
+        private Weapon _currentWeapon;
+        public Weapon CurrentWeapon => _currentWeapon;
         
         //todo: create initializating method to work with initional menu
         private void Awake()
@@ -33,7 +35,11 @@ namespace UnityTemplateProjects.Player
         public void SetActiveWeapon(WeaponData weaponData)
         {
             var weapon = _weapons.FirstOrDefault(x => x.WeaponData == weaponData);
-            weapon?.gameObject.SetActive(true);
+            if (weapon != null)
+            {
+                weapon.gameObject.SetActive(true);
+                _currentWeapon = weapon;
+            }
         }
         
         public void ChangeStateWeapon()
