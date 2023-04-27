@@ -9,17 +9,14 @@ namespace UnityTemplateProjects.Enemy
 {
     public class EnemyController:MonoBehaviour, IDamageable
     {
-        [SerializeField] private HealthBar _healthBarPrefab;
+        [SerializeField] private HealthBar _healthBar;
 
         private HealthSystem _healthSystem;
 
         private void Start()
         {
-            var healthObject = Instantiate(_healthBarPrefab, new Vector3(0, 2.7f, 0), quaternion.identity, transform);
-            var healthBar = healthObject.GetComponent<HealthBar>();
-
             _healthSystem = new HealthSystem(50);
-            healthBar.Setup(_healthSystem);
+            _healthBar.Setup(_healthSystem);
         }
 
         public void ReceiveDamage(float damageValue)
