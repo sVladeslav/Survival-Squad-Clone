@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b176c12c5cc4f709515ae38f0140681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  _healthBarPrefab: {fileID: 2486806842146436248, guid: 4d80e2f65e003454984c6c9c90816194, type: 3}
 --- !u!65 &278820735
 BoxCollider:
   m_ObjectHideFlags: 0

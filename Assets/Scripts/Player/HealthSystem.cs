@@ -6,8 +6,8 @@ namespace UnityTemplateProjects.Player
     {
         public event Action OnHealthChanged;
 
-        private int _maxHealth;
-        private int _health;
+        private float _maxHealth;
+        private float _health;
 
         public HealthSystem(int maxHealth)
         {
@@ -20,7 +20,7 @@ namespace UnityTemplateProjects.Player
             return (float) _health / _maxHealth;
         }
         
-        public void Damage(int damageValue)
+        public void Damage(float damageValue)
         {
             _health -= damageValue;
             if (_health < 0)
@@ -29,7 +29,7 @@ namespace UnityTemplateProjects.Player
             OnHealthChanged?.Invoke();
         }
 
-        public void Heal(int healValue)
+        public void Heal(float healValue)
         {
             _health += healValue;
             if (_health > _maxHealth)
