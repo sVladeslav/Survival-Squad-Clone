@@ -1439,6 +1439,8 @@ GameObject:
   - component: {fileID: 923820193}
   - component: {fileID: 923820192}
   - component: {fileID: 923820191}
+  - component: {fileID: 923820196}
+  - component: {fileID: 923820195}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1488,8 +1490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b176c12c5cc4f709515ae38f0140681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackController: {fileID: 0}
-  _animationController: {fileID: 0}
+  _attackController: {fileID: 923820196}
+  _animationController: {fileID: 923820195}
   _healthBar: {fileID: 409608466}
 --- !u!4 &923820194
 Transform:
@@ -1506,6 +1508,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &923820195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923820190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87704c1ac8594736ae1ebc57ec4d7a57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 0}
+--- !u!114 &923820196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923820190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d06d69331f63404a9ba32ece0c003648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1052324114
 PrefabInstance:
   m_ObjectHideFlags: 0

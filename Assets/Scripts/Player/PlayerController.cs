@@ -2,10 +2,11 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityTemplateProjects.General;
 using UnityTemplateProjects.Player;
 using UnityTemplateProjects.View;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IDamageable
     {
         [SerializeField] private PlayerMoveController _playerMovement;
 
@@ -33,5 +34,14 @@ public class PlayerController : MonoBehaviour
         {
             _playerMovement.OnPlayerMove -= _animationController.PlayMovementAnimation;
             _attackController.OnAttack -= _animationController.PlayAttackAnimation;
+        }
+        
+        
+        public void ReceiveDamage(float damageValue)
+        {
+            _healthSystem.Damage(damageValue);
+            
+            if(_healthSystem.GetHealthPercent() == 0)
+                Destroy(gameObject);
         }
     }
