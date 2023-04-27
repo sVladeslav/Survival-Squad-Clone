@@ -9,6 +9,9 @@ namespace UnityTemplateProjects.Enemy
 {
     public class EnemyController:MonoBehaviour, IDamageable
     {
+        [SerializeField] private EnemyAttackController _attackController;
+        [SerializeField] private EnemyAnimationController _animationController;
+        
         [SerializeField] private HealthBar _healthBar;
 
         private HealthSystem _healthSystem;
