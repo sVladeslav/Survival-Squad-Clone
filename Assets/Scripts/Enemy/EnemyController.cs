@@ -11,14 +11,12 @@ namespace UnityTemplateProjects.Enemy
     public class EnemyController:MonoBehaviour, IDamageable
     {
         [SerializeField] private EnemyAttackController _attackController;
+        [SerializeField] private EnemyMovement _movementController;
         [SerializeField] private EnemyAnimationController _animationController;
-        
-        [SerializeField] private Transform _playerTarget;
+      
 
         [SerializeField] private HealthBar _healthBar;
 
-        private NavMeshAgent _navMeshAgent;
-        
         private HealthSystem _healthSystem;
 
         private void Start()
@@ -26,7 +24,7 @@ namespace UnityTemplateProjects.Enemy
             _healthSystem = new HealthSystem(50);
             _healthBar.Setup(_healthSystem);
 
-            _navMeshAgent = GetComponent<NavMeshAgent>();
+            _attackController.OnAttack += _animationController.PlayAttackAnimation;
         }
 
         public void ReceiveDamage(float damageValue)
@@ -37,9 +35,9 @@ namespace UnityTemplateProjects.Enemy
                 Destroy(gameObject);
         }
 
-        private void Update()
+        private void OnDestroy()
         {
-            _navMeshAgent.SetDestination(_playerTarget.position);
+            _attackController.OnAttack -= _animationController.PlayAttackAnimation;
         }
     }
 }

@@ -18,9 +18,14 @@ namespace UnityTemplateProjects.Enemy
             }
         }
 
+        private void Start()
+        {
+            IsAttacking = true;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
-            if(!other.CompareTag($"player"))
+            if(!other.CompareTag(Constants.Tag.Player))
                 return;
             
             IsAttacking = true;
@@ -28,7 +33,7 @@ namespace UnityTemplateProjects.Enemy
 
         private void OnTriggerExit(Collider other)
         {
-            if(!other.CompareTag($"player"))
+            if(!other.CompareTag(Constants.Tag.Player))
                 return;
             
             IsAttacking = false;

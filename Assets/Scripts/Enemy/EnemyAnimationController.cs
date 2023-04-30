@@ -8,7 +8,17 @@ namespace UnityTemplateProjects.Enemy
         
         private string _isRunningParameter = "isRunning";
         private string _isAttackingParameter = "isAttacking";
+        
+        private string _topBodyLayer = "Top body";
+        
+        private int _attackLayerIndex;
 
+        
+        private void Awake()
+        {
+            _attackLayerIndex = _animator.GetLayerIndex(_topBodyLayer);
+        }
+        
         public void PlayMovementAnimation(bool isRunning)
         {
             _animator.SetBool(_isRunningParameter, isRunning);
@@ -18,8 +28,14 @@ namespace UnityTemplateProjects.Enemy
         {
             _animator.SetBool(_isAttackingParameter, isAttacking);
             
-            // _animator.SetLayerWeight(_attackLayerIndex, WeightFromBool(isAttacking));
+             _animator.SetLayerWeight(_attackLayerIndex, WeightFromBool(isAttacking));
         }
         
+        private int WeightFromBool(bool state)
+        {
+            if (state)
+                return 1;
+            return 0;
+        }
     }
 }
