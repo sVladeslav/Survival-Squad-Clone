@@ -18,11 +18,6 @@ namespace UnityTemplateProjects.Enemy
             }
         }
 
-        private void Start()
-        {
-            IsAttacking = true;
-        }
-
         private void OnTriggerEnter(Collider other)
         {
             if(!other.CompareTag(Constants.Tag.Player))
