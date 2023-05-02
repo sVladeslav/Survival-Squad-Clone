@@ -5,19 +5,24 @@ namespace UnityTemplateProjects.Enemy
 {
     public class EnemyMovement: MonoBehaviour
     {
-        [SerializeField] private Transform _playerTarget;
-        
-        
+        private Transform _playerTarget;
         private NavMeshAgent _navMeshAgent;
-        
+        public bool IsMoving { get; set; }
+
         private void Start()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
         }
-        
+        public void SetActiveMovement(bool isActive, Transform playerTransform)
+        {
+            _playerTarget = isActive ? playerTransform : null;
+        }
         private void Update()
         {
-            _navMeshAgent.SetDestination(_playerTarget.position);
+            if (_playerTarget != null)
+            {
+                _navMeshAgent.SetDestination(_playerTarget.position);
+            }
         }
     }
 }

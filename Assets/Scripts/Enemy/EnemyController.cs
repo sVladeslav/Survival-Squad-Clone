@@ -13,7 +13,8 @@ namespace UnityTemplateProjects.Enemy
         [SerializeField] private EnemyAttackController _attackController;
         [SerializeField] private EnemyMovement _movementController;
         [SerializeField] private EnemyAnimationController _animationController;
-      
+        [SerializeField] private EnemyTriggerController _triggerController;
+        [SerializeField] private Transform _playerTarget;
 
         [SerializeField] private HealthBar _healthBar;
 
@@ -25,6 +26,15 @@ namespace UnityTemplateProjects.Enemy
             _healthBar.Setup(_healthSystem);
 
             _attackController.OnAttack += _animationController.PlayAttackAnimation;
+            _triggerController.OnTriggerPlayer += DetectPlayerTrigger;
+            
+            _movementController.SetActiveMovement(true, _playerTarget);
+        }
+
+        private void DetectPlayerTrigger(bool isEntered, PlayerController player)
+        {
+            _attackController.IsAttacking = isEntered;
+            _movementController.SetActiveMovement(!isEntered, player.transform);
         }
 
         public void ReceiveDamage(float damageValue)

@@ -1467,6 +1467,7 @@ GameObject:
   - component: {fileID: 923820191}
   - component: {fileID: 923820198}
   - component: {fileID: 923820199}
+  - component: {fileID: 923820200}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -1518,6 +1519,8 @@ MonoBehaviour:
   _attackController: {fileID: 923820196}
   _movementController: {fileID: 923820199}
   _animationController: {fileID: 923820195}
+  _triggerController: {fileID: 923820200}
+  _playerTarget: {fileID: 2094140003}
   _healthBar: {fileID: 409608466}
 --- !u!4 &923820194
 Transform:
@@ -1607,7 +1610,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a6575b084b45888207f108548088d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerTarget: {fileID: 2094140003}
+--- !u!114 &923820200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 923820190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c10b98518ba346ffbb350d0a1f378428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1052324114
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ namespace UnityTemplateProjects.Enemy
         public event Action<bool> OnAttack;
 
         private bool _isAttacking;
-        private bool IsAttacking
+        public bool IsAttacking
         {
             get => _isAttacking;
             set
@@ -16,22 +16,6 @@ namespace UnityTemplateProjects.Enemy
                 _isAttacking = value;
                 OnAttack?.Invoke(_isAttacking);
             }
-        }
-
-        private void OnTriggerEnter(Collider other)
-        {
-            if(!other.CompareTag(Constants.Tag.Player))
-                return;
-            
-            IsAttacking = true;
-        }
-
-        private void OnTriggerExit(Collider other)
-        {
-            if(!other.CompareTag(Constants.Tag.Player))
-                return;
-            
-            IsAttacking = false;
         }
     }
 }
