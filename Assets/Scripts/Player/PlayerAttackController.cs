@@ -47,8 +47,8 @@ namespace UnityTemplateProjects.Player
             if (_enemyNearCounter > 0)
             {
                 _enemyNearCounter--;
-                
-            }else 
+            }
+            else 
             {
                 _enemyNearCounter = 0;
             }
