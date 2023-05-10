@@ -17,15 +17,5 @@ namespace UnityTemplateProjects.Items
             
             Destroy(gameObject);
         }
-
-        private void Start()
-        {
-            _coinCount.RestoreValue();
-        }
-
-        private void OnDestroy()
-        {
-            _coinCount.SaveValue();
-        }
     }
 }

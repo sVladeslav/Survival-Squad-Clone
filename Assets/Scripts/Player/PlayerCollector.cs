@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityTemplateProjects.Collectable;
+using UnityTemplateProjects.PowerUp;
 
 namespace UnityTemplateProjects.Player
 {
@@ -20,12 +21,21 @@ namespace UnityTemplateProjects.Player
         private void OnTriggerEnter(Collider other)
         {
             var collectable = other.GetComponent<ICollectable>();
-            if (collectable == null)
+            var powerUp = other.GetComponent <PowerUpWorldView>();
+            if (collectable == null && powerUp == null)
             {
                 return;
             }
+            
+            if (collectable != null)
+            {
+                Collect(collectable);
+            }
 
-            Collect(collectable);
+            if (powerUp != null)
+            {
+                powerUp.PowerUp.Activate(()=> Destroy(powerUp.gameObject));
+            }
         }
     }
 }

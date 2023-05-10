@@ -4,7 +4,7 @@ using UnityEngine;
 namespace UnityTemplateProjects.ScriptableObjects.Data
 {
     [CreateAssetMenu(fileName = "ScriptableObjectInt", menuName = "ScriptableObject/ScriptableObjectInt")]
-    public class ScriptableObjectInt: ScriptableObject
+    public class ScriptableObjectInt: ScriptableObjectData
     {
         public event Action<int> OnValueChenge;
         [SerializeField] private int _value;
@@ -18,12 +18,12 @@ namespace UnityTemplateProjects.ScriptableObjects.Data
             OnValueChenge?.Invoke(value);
         }
         
-        public void RestoreValue()
+        public override void Restore()
         {
-            _value = PlayerPrefs.GetInt(_name, 0);
+            ChangeValue(PlayerPrefs.GetInt(_name, 0));
         }
         
-        public void SaveValue()
+        public override void Save()
         {
             PlayerPrefs.SetInt(_name, Value);
         }

@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityTemplateProjects.ScriptableObjects.Data;
 
-    public class PlayerMoveController : MonoBehaviour
+public class PlayerMoveController : MonoBehaviour
     {
         public event Action<bool> OnPlayerMove;
 
-        [SerializeField] private float _speed;
+        [SerializeField] private ScriptableObjectFloat _speedValue;
         [SerializeField] private bool _isMove = true;
         [SerializeField] private bool _isRotation = true;
         [SerializeField] private Joystick _joystick;
@@ -23,7 +25,6 @@ using UnityEngine;
 
         public bool IsMove { get => _isMove; set => _isMove = value; }
         public bool IsRotation { get => _isRotation; set => _isRotation = value; }
-        public float Speed { set { _speed = value; } }
 
         protected virtual void OnEnable()
         {
@@ -37,7 +38,7 @@ using UnityEngine;
 
         public void ApplyPowerUp(params object[] param)
         {
-            _speed += (int) param[0];
+            // _speedValue += (int) param[0];
         }
         
         protected virtual void SetActive(bool isActive)
@@ -81,11 +82,11 @@ using UnityEngine;
 
                 var speedLimit = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
 
-                if (speedLimit.magnitude < _speed)
+                if (speedLimit.magnitude < _speedValue.Value)
                 {
                     _rigidbody.velocity = Vector3.SmoothDamp(
                         _rigidbody.velocity,
-                        _direction * _speed, ref _refVelocity, _smoothVal);
+                        _direction * _speedValue.Value, ref _refVelocity, _smoothVal);
                 }
             }
         }
