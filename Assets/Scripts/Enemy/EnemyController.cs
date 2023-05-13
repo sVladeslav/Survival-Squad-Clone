@@ -10,6 +10,7 @@ namespace UnityTemplateProjects.Enemy
 {
     public class EnemyController:MonoBehaviour, IDamageable
     {
+        public event Action OnDie;
         [SerializeField] private EnemyAttackController _attackController;
         [SerializeField] private EnemyMovement _movementController;
         [SerializeField] private EnemyAnimationController _animationController;
@@ -47,6 +48,7 @@ namespace UnityTemplateProjects.Enemy
 
         private void OnDestroy()
         {
+            OnDie?.Invoke();
             _attackController.OnAttack -= _animationController.PlayAttackAnimation;
         }
     }

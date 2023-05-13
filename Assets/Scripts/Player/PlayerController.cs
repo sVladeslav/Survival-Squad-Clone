@@ -8,6 +8,8 @@ using UnityTemplateProjects.View;
 
 public class PlayerController : MonoBehaviour, IDamageable
     {
+        public event Action OnDie;
+        
         [SerializeField] private PlayerMoveController _playerMovement;
 
         [SerializeField] private PlayerAnimationController _animationController;
@@ -35,8 +37,7 @@ public class PlayerController : MonoBehaviour, IDamageable
             _playerMovement.OnPlayerMove -= _animationController.PlayMovementAnimation;
             _attackController.OnAttack -= _animationController.PlayAttackAnimation;
         }
-        
-        
+
         public void ReceiveDamage(float damageValue)
         {
             _healthSystem.Damage(damageValue);
