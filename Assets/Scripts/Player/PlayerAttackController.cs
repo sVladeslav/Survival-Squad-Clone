@@ -59,6 +59,10 @@ namespace UnityTemplateProjects.Player
                 _damageables.Add(damageable);
                
             }
+            else
+            {
+                return;
+            }
 
             Debug.Log($"+ {_damageables.Count}");
             IsAttacking = true;
@@ -83,7 +87,11 @@ namespace UnityTemplateProjects.Player
                 _enemyNearCounter = 0;
             }
 
-            _damageables.Remove(damageable);
+            if (_damageables.Contains(damageable))
+            {
+                _damageables.Remove(damageable);
+            }
+
             Debug.Log($"- {_damageables.Count}");
             // if (_enemyNearCounter == 0)
             if (_damageables.Count == 0)
